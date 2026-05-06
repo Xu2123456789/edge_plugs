@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "B站页面锁定",
+  "version": "2.2",
+  "description": "带开关的B站导航页锁定工具（首页/热门/所有分区），视频页100%无干扰",
+  "permissions": ["storage", "scripting", "tabs"],
+  "host_permissions": [
+    "*://www.bilibili.com/*",
+    "*://live.bilibili.com/*",
+    "*://www.bilibili.com/v/*",
+    "*://www.bilibili.com/bangumi/*",
+    "*://www.bilibili.com/m/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.bilibili.com/*",
+        "*://live.bilibili.com/*",
+        "*://www.bilibili.com/v/*",
+        "*://www.bilibili.com/bangumi/*",
+        "*://www.bilibili.com/m/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}

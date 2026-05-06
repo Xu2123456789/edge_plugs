@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<head>
+  <title>B站页面锁定</title>
+  <style>
+    body { 
+      width: 280px; 
+      padding: 20px; 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      background: #f8f9fa;
+      color: #333;
+    }
+    .container {
+      text-align: center;
+    }
+    h1 { 
+      font-size: 1.4em; 
+      color: #00a1d6; 
+      margin: 0 0 15px;
+      font-weight: 600;
+    }
+    .switch-container {
+      margin: 15px 0;
+    }
+    .switch-label {
+      font-size: 1.1em;
+      font-weight: 500;
+      margin-left: 8px;
+      color: #444;
+    }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 24px;
+      width: 24px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #00a1d6;
+    }
+    input:checked + .slider:before {
+      transform: translateX(30px);
+    }
+    input {
+      display: none;
+    }
+    .status {
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 15px;
+      font-size: 0.95em;
+      font-weight: 500;
+    }
+    .status.enabled {
+      background: #d4edda;
+      color: #155724;
+    }
+    .status.disabled {
+      background: #f8d7da;
+      color: #721c24;
+    }
+    .info {
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: #666;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔒 B站页面锁定</h1>
+    
+    <div class="switch-container">
+      <label class="switch">
+        <input type="checkbox" id="toggle">
+        <span class="slider"></span>
+      </label>
+      <span class="switch-label">启用锁定</span>
+    </div>
+    
+    <div class="status" id="status">加载中...</div>
+    
+    <div class="info">
+      <p>• 首页/热门/排行榜会被锁定</p>
+      <p>• 视频页完全不受影响</p>
+      <p>• 切换开关后立即生效</p>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
